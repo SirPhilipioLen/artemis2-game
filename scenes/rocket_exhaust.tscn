@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://nrdkruconutk"]
+
+[ext_resource type="Texture2D" uid="uid://bo0o3s3y1bcnd" path="res://My Game Assets/Final Assets/laserBlue16.png" id="1_g56ia"]
+[ext_resource type="Texture2D" uid="uid://5sksrj4416im" path="res://My Game Assets/Final Assets/laserRed01.png" id="2_tg4a2"]
+
+[sub_resource type="Gradient" id="Gradient_mbtnd"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_srib0"]
+gradient = SubResource("Gradient_mbtnd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Rocket_Exhaust" type="CharacterBody2D"]
+position = Vector2(215, 158)
+
+[node name="RS-25-Left" type="Sprite2D" parent="."]
+position = Vector2(49, -74)
+scale = Vector2(1, 0.75)
+texture = ExtResource("1_g56ia")
+
+[node name="PointLight2D" type="PointLight2D" parent="RS-25-Left"]
+z_index = -262
+position = Vector2(-2.00001, -3.00002)
+scale = Vector2(1.35351, 2.37577)
+color = Color(0.161361, 7.70092e-07, 0.825462, 1)
+energy = 5.21
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_srib0")
+
+[node name="RS-25-Right" type="Sprite2D" parent="."]
+position = Vector2(67, -74)
+scale = Vector2(1, 0.75)
+texture = ExtResource("1_g56ia")
+
+[node name="PointLight2D" type="PointLight2D" parent="RS-25-Right"]
+z_index = -262
+position = Vector2(-2.00001, -3.00002)
+scale = Vector2(1.35351, 2.37577)
+color = Color(0.160784, 0, 0.823529, 1)
+energy = 5.21
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_srib0")
+
+[node name="BoosterLeft" type="Sprite2D" parent="."]
+position = Vector2(-13, 1)
+scale = Vector2(3.69444, 3.69444)
+texture = ExtResource("2_tg4a2")
+
+[node name="PointLight2D" type="PointLight2D" parent="BoosterLeft"]
+z_index = -262
+position = Vector2(-2.00001, -3.00002)
+scale = Vector2(1.35351, 2.37577)
+color = Color(0.788893, 0.188772, 2.88785e-07, 1)
+energy = 5.21
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_srib0")
+
+[node name="BoosterRight" type="Sprite2D" parent="."]
+position = Vector2(131, 3)
+scale = Vector2(3.69444, 3.69444)
+texture = ExtResource("2_tg4a2")
+
+[node name="PointLight2D" type="PointLight2D" parent="BoosterRight"]
+z_index = -262
+position = Vector2(-2.00001, -3.00002)
+scale = Vector2(1.35351, 2.37577)
+color = Color(0.788893, 0.188772, 2.88785e-07, 1)
+energy = 5.21
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_srib0")

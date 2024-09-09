@@ -1,0 +1,140 @@
+[gd_scene load_steps=21 format=3 uid="uid://bhp3ns5cfhcql"]
+
+[ext_resource type="Texture2D" uid="uid://u052vfknyk72" path="res://My Game Assets/Final Assets/sls/CoreStage.png" id="1_md4b4"]
+[ext_resource type="Texture2D" uid="uid://cjjf0twbfymwi" path="res://My Game Assets/Final Assets/sls/CoreStage_n.png" id="2_e8rf2"]
+[ext_resource type="Texture2D" uid="uid://yioielus4pkp" path="res://My Game Assets/Final Assets/sls/Engines.png" id="2_y420r"]
+[ext_resource type="Texture2D" uid="uid://dyoloelt0bp3j" path="res://My Game Assets/Final Assets/sls/LeftBooster.png" id="3_mdrco"]
+[ext_resource type="Texture2D" uid="uid://bjddx45mep33c" path="res://My Game Assets/Final Assets/sls/Engines_n.png" id="4_2ab85"]
+[ext_resource type="Texture2D" uid="uid://pgiqp61k0sov" path="res://My Game Assets/Final Assets/sls/RightBooster.png" id="4_eiucw"]
+[ext_resource type="Texture2D" uid="uid://h44kw5u2o0w2" path="res://My Game Assets/Final Assets/sls/Skirt.png" id="5_nvtl5"]
+[ext_resource type="Texture2D" uid="uid://cu2j33xocof66" path="res://My Game Assets/Final Assets/sls/LeftBooster_n.png" id="6_aemhj"]
+[ext_resource type="Texture2D" uid="uid://bo0o3s3y1bcnd" path="res://My Game Assets/Final Assets/laserBlue16.png" id="7_krr15"]
+[ext_resource type="Texture2D" uid="uid://b07ab0gsuqv44" path="res://My Game Assets/Final Assets/sls/RightBooster_n.png" id="8_c1hoo"]
+[ext_resource type="Texture2D" uid="uid://cfy0e0hrlyapk" path="res://My Game Assets/Final Assets/sls/Skirt_n.png" id="10_1k6gm"]
+[ext_resource type="Texture2D" uid="uid://5sksrj4416im" path="res://My Game Assets/Final Assets/laserRed01.png" id="10_oam13"]
+[ext_resource type="Script" path="res://scripts/flicker.gd" id="13_qtl3b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xhjmm"]
+diffuse_texture = ExtResource("1_md4b4")
+normal_texture = ExtResource("2_e8rf2")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pfg5y"]
+diffuse_texture = ExtResource("5_nvtl5")
+normal_texture = ExtResource("10_1k6gm")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2skl0"]
+diffuse_texture = ExtResource("2_y420r")
+normal_texture = ExtResource("4_2ab85")
+
+[sub_resource type="Gradient" id="Gradient_i2ond"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_38u6e"]
+gradient = SubResource("Gradient_i2ond")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0oluq"]
+diffuse_texture = ExtResource("3_mdrco")
+normal_texture = ExtResource("6_aemhj")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y2s5g"]
+diffuse_texture = ExtResource("4_eiucw")
+normal_texture = ExtResource("8_c1hoo")
+
+[node name="sls" type="CharacterBody2D"]
+position = Vector2(615, 502)
+
+[node name="CoreStage" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_xhjmm")
+
+[node name="Skirt" type="Sprite2D" parent="CoreStage"]
+position = Vector2(-1.47675, -258.074)
+rotation = -0.00523599
+scale = Vector2(1.19141, 1.19141)
+texture = SubResource("CanvasTexture_pfg5y")
+
+[node name="Engines" type="Sprite2D" parent="CoreStage"]
+z_index = -1
+position = Vector2(-0.625, 238.76)
+rotation = -0.00872665
+texture = SubResource("CanvasTexture_2skl0")
+
+[node name="RS-25-Left" type="Sprite2D" parent="CoreStage/Engines"]
+z_index = -1
+position = Vector2(-15.647, 31.1046)
+rotation = 0.00872665
+scale = Vector2(1.21154, 0.908655)
+texture = ExtResource("7_krr15")
+
+[node name="PointLight2D" type="PointLight2D" parent="CoreStage/Engines/RS-25-Left"]
+light_mask = 0
+z_index = -262
+position = Vector2(0, -16.508)
+scale = Vector2(1.35351, 2.37577)
+color = Color(0.197333, 0, 0.74, 1)
+energy = 3.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_38u6e")
+
+[node name="RS-25-Right" type="Sprite2D" parent="CoreStage/Engines"]
+z_index = -1
+position = Vector2(14.361, 31.105)
+rotation = 0.00872665
+scale = Vector2(1.212, 0.909)
+texture = ExtResource("7_krr15")
+
+[node name="PointLight2D" type="PointLight2D" parent="CoreStage/Engines/RS-25-Right"]
+light_mask = 0
+z_index = -262
+position = Vector2(-0.00567627, -15.1139)
+scale = Vector2(1.35351, 2.37577)
+color = Color(0.196078, 0, 0.741176, 1)
+energy = 3.5
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_38u6e")
+
+[node name="LeftBooster" type="Sprite2D" parent="CoreStage"]
+position = Vector2(-46.85, 54.72)
+texture = SubResource("CanvasTexture_0oluq")
+
+[node name="LeftBoosterExhaust" type="Sprite2D" parent="CoreStage/LeftBooster"]
+z_index = -1
+position = Vector2(-1.72, 274.28)
+scale = Vector2(3.09028, 3.09028)
+texture = ExtResource("10_oam13")
+
+[node name="PointLight2D" type="PointLight2D" parent="CoreStage/LeftBooster/LeftBoosterExhaust"]
+z_index = -262
+position = Vector2(0.184427, -20.0629)
+scale = Vector2(2.6021, 4.56738)
+color = Color(0.788893, 0.188772, 2.88785e-07, 1)
+energy = 25.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_38u6e")
+script = ExtResource("13_qtl3b")
+
+[node name="RightBooster" type="Sprite2D" parent="CoreStage"]
+position = Vector2(48.365, 49.44)
+texture = SubResource("CanvasTexture_y2s5g")
+
+[node name="RightBoosterExhaust" type="Sprite2D" parent="CoreStage/RightBooster"]
+z_index = -1
+position = Vector2(-1.608, 279.605)
+scale = Vector2(3.09, 3.09)
+texture = ExtResource("10_oam13")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CoreStage/RightBooster/RightBoosterExhaust"]
+z_index = -262
+position = Vector2(0.184427, -20.0629)
+scale = Vector2(2.6021, 4.56738)
+color = Color(0.788893, 0.188772, 2.88785e-07, 1)
+energy = 25.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_38u6e")
+script = ExtResource("13_qtl3b")

@@ -1,0 +1,305 @@
+[gd_scene load_steps=25 format=3 uid="uid://njm7uk2y0mcn"]
+
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_ywkv5"]
+[ext_resource type="AudioStream" uid="uid://bp3n0cyy56tn4" path="res://My Game Assets/Final Assets/SFX/first_ignition_Test.mp3" id="4_48xn3"]
+[ext_resource type="Script" path="res://scripts/level_1_Camera2D.gd" id="4_qh4c1"]
+[ext_resource type="AudioStream" uid="uid://b5mfvoqs7iljr" path="res://My Game Assets/Final Assets/SFX/srb_launch_v2.mp3" id="5_lmho7"]
+[ext_resource type="Texture2D" uid="uid://dposidnu875ka" path="res://My Game Assets/LaunchPad.png" id="5_yaluy"]
+[ext_resource type="Texture2D" uid="uid://cfobxvwmx7im8" path="res://My Game Assets/LaunchPad_n.png" id="7_1p6b6"]
+[ext_resource type="PackedScene" uid="uid://bhp3ns5cfhcql" path="res://scenes/sls.tscn" id="7_nv6xb"]
+[ext_resource type="Texture2D" uid="uid://d36a2vft1muqu" path="res://My Game Assets/_MG_1997.jpg" id="8_sqjws"]
+[ext_resource type="PackedScene" uid="uid://btk4sgosd1ena" path="res://scenes/orion_sem.tscn" id="8_v60xd"]
+[ext_resource type="Texture2D" uid="uid://cviemht6lemmr" path="res://My Game Assets/Final Assets/sls/launch_complex.png" id="9_fkwop"]
+[ext_resource type="Script" path="res://scripts/Label.gd" id="9_jqnhu"]
+[ext_resource type="PackedScene" uid="uid://bss3rypdtth1c" path="res://scenes/label_main.tscn" id="10_e5tfo"]
+[ext_resource type="AudioStream" uid="uid://djkhftw7ptv57" path="res://My Game Assets/Final Assets/SFX/cricket-ambience6-24984.mp3" id="13_g6cop"]
+[ext_resource type="AudioStream" uid="uid://bdb664xubpig0" path="res://My Game Assets/Final Assets/SFX/wind-edited.ogg" id="14_5vegh"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ctija"]
+diffuse_texture = ExtResource("5_yaluy")
+normal_texture = ExtResource("7_1p6b6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mfvw"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oc8fw"]
+bg_color = Color(2.88785e-06, 0.841882, 0.502663, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="SystemFont" id="SystemFont_dw18l"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxllm"]
+font = SubResource("SystemFont_dw18l")
+font_size = 21
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46s7r"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_ttwv3"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_dente"]
+font = SubResource("SystemFont_ttwv3")
+font_size = 50
+
+[sub_resource type="SystemFont" id="SystemFont_06s7o"]
+font_names = PackedStringArray("Bell Gothic Std", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dlxx"]
+font = SubResource("SystemFont_06s7o")
+font_size = 26
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[node name="level_1" type="Node2D"]
+
+[node name="sls" parent="." instance=ExtResource("7_nv6xb")]
+position = Vector2(1010.67, 968.16)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_ywkv5")
+
+[node name="RS-25-Left" parent="sls/CoreStage/Engines" index="0"]
+visible = false
+
+[node name="RS-25-Right" parent="sls/CoreStage/Engines" index="1"]
+visible = false
+
+[node name="LeftBooster" parent="sls/CoreStage" index="2"]
+position = Vector2(2, 54.72)
+
+[node name="LeftBoosterExhaust" parent="sls/CoreStage/LeftBooster" index="0"]
+visible = false
+
+[node name="RightBooster" parent="sls/CoreStage" index="3"]
+z_index = -1
+position = Vector2(2, 49.44)
+
+[node name="RightBoosterExhaust" parent="sls/CoreStage/RightBooster" index="0"]
+visible = false
+
+[node name="orion_sem" parent="sls" instance=ExtResource("8_v60xd")]
+z_index = -1
+position = Vector2(-1, -368.815)
+scale = Vector2(0.06, 0.06)
+
+[node name="LeftBoosterExhaust" parent="sls/orion_sem/Icps" index="0"]
+visible = false
+
+[node name="Ignition_Sound" type="AudioStreamPlayer" parent="sls"]
+stream = ExtResource("4_48xn3")
+volume_db = -80.0
+
+[node name="Looped_Rocket_Sound" type="AudioStreamPlayer" parent="sls"]
+stream = ExtResource("4_48xn3")
+volume_db = -10.0
+
+[node name="SRBs" type="AudioStreamPlayer" parent="sls"]
+stream = ExtResource("5_lmho7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(958.13, 674.419)
+scale = Vector2(0.436842, 0.436842)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = ExtResource("4_qh4c1")
+
+[node name="LaunchPad" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1032, 953.2)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("CanvasTexture_ctija")
+
+[node name="LaunchComplex" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(904, 1076.54)
+texture = ExtResource("9_fkwop")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.15, 0.15)
+
+[node name="Mg1997" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+z_index = -1
+position = Vector2(973, 363)
+scale = Vector2(0.400497, 0.400497)
+texture = ExtResource("8_sqjws")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 754.0
+offset_right = 40.0
+offset_bottom = 973.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_6mfvw")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oc8fw")
+max_value = 10.0
+fill_mode = 3
+
+[node name="ThrustLevel" type="Label" parent="CanvasLayer/Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -49.0
+offset_right = 28.0
+offset_bottom = -2.0
+grow_horizontal = 2
+text = "Thrust
+Level"
+label_settings = SubResource("LabelSettings_mxllm")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 851.0
+offset_right = 265.0
+offset_bottom = 1016.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_46s7r")
+
+[node name="Degrees" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = " 90°"
+label_settings = SubResource("LabelSettings_dente")
+
+[node name="AttitudeName" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_top = -30.0
+offset_right = 90.5
+offset_bottom = -7.0
+grow_horizontal = 2
+text = "Spacecraft Attitude"
+label_settings = SubResource("LabelSettings_mxllm")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(2163, 744)
+rotation = 7.33037
+color = Color(1, 0.32, 0.32, 1)
+energy = 0.51
+blend_mode = 2
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2(0.05, 0.05)
+
+[node name="LabelMain" parent="ParallaxBackground2/ParallaxLayer" instance=ExtResource("10_e5tfo")]
+
+[node name="MarginContainer" parent="ParallaxBackground2/ParallaxLayer/LabelMain" index="0"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 491.0
+offset_bottom = 148.0
+
+[node name="Title" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+text = "READY STEADY GO"
+
+[node name="Label" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+text = "The SLS (Space Launch System)
+is one of the most powerful rockets
+ever built. It carries over 2.6 million kg
+of fuel to help lift off from Earth!
+The rocket will reach speeds of over 
+28,000 km per hour to get into space.
+
+Press SPACE to continue...
+"
+
+[node name="Label2" type="Label" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="2"]
+visible = false
+layout_mode = 2
+text = "Hold SHIFT until the thrust meter fills up.
+When the engines are at full power,
+press SPACE to start engine ignition."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("9_jqnhu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+visible = false
+layout_mode = 2
+text = "Now that the engines are at full power,
+press SPACE to ignite the Solid Rocket
+Boosters and launch the rocket."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("9_jqnhu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="4"]
+visible = false
+layout_mode = 2
+text = "Press SPACE to continue..."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("9_jqnhu")
+metadata/_edit_use_anchors_ = true
+
+[node name="crickets" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_g6cop")
+volume_db = -5.0
+
+[node name="wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_5vegh")
+volume_db = -5.0
+
+[editable path="sls"]
+[editable path="sls/orion_sem"]
+[editable path="ParallaxBackground2/ParallaxLayer/LabelMain"]

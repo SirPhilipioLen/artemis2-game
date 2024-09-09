@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=3 uid="uid://njm7uk2y0mcn"]
+
+[ext_resource type="PackedScene" uid="uid://bnscxhhca8dlw" path="res://scenes/rocket.tscn" id="1_dl2pk"]
+[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_ywkv5"]
+[ext_resource type="Texture2D" uid="uid://dposidnu875ka" path="res://My Game Assets/LaunchPad.png" id="5_yaluy"]
+[ext_resource type="Texture2D" uid="uid://cfobxvwmx7im8" path="res://My Game Assets/LaunchPad_n.png" id="7_1p6b6"]
+[ext_resource type="Script" path="res://scripts/sls_liftoff.gd" id="7_j4sdh"]
+[ext_resource type="PackedScene" uid="uid://bhp3ns5cfhcql" path="res://scenes/sls.tscn" id="7_nv6xb"]
+[ext_resource type="Texture2D" uid="uid://d36a2vft1muqu" path="res://My Game Assets/_MG_1997.jpg" id="8_sqjws"]
+[ext_resource type="PackedScene" uid="uid://btk4sgosd1ena" path="res://scenes/orion_sem.tscn" id="8_v60xd"]
+[ext_resource type="Texture2D" uid="uid://cviemht6lemmr" path="res://My Game Assets/Final Assets/sls/launch_complex.png" id="9_fkwop"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ctija"]
+diffuse_texture = ExtResource("5_yaluy")
+normal_texture = ExtResource("7_1p6b6")
+
+[sub_resource type="SystemFont" id="SystemFont_06s7o"]
+font_names = PackedStringArray("Bell Gothic Std", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vtts2"]
+font = SubResource("SystemFont_06s7o")
+font_size = 26
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_xohfc"]
+font_names = PackedStringArray("Artemis Inter")
+
+[sub_resource type="LabelSettings" id="LabelSettings_soh6p"]
+font = SubResource("SystemFont_xohfc")
+font_size = 56
+outline_size = 8
+outline_color = Color(0, 0.690196, 1, 1)
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_ywkv5")
+
+[node name="rocket" parent="." instance=ExtResource("1_dl2pk")]
+visible = false
+z_index = 985
+position = Vector2(929, 803)
+scale = Vector2(0.6, 0.6)
+collision_layer = 1
+collision_mask = 1
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="rocket"]
+position = Vector2(-47.1428, 441.528)
+scale = Vector2(0.285714, 0.152821)
+rect = Rect2(-10, -10, 350, 599.475)
+
+[node name="Camera2D" type="Camera2D" parent="rocket"]
+position = Vector2(0, -380)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="LaunchPad" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1048, 733)
+scale = Vector2(0.7, 0.7)
+texture = SubResource("CanvasTexture_ctija")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(2163, 744)
+rotation = 7.33037
+color = Color(1, 0.32, 0.32, 1)
+energy = 0.51
+blend_mode = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.15, 0.15)
+
+[node name="Mg1997" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+light_mask = 0
+z_index = -1
+position = Vector2(1016, 358)
+scale = Vector2(0.400497, 0.400497)
+texture = ExtResource("8_sqjws")
+
+[node name="Label" type="Label" parent="ParallaxBackground/ParallaxLayer"]
+offset_left = 29.0
+offset_top = 36.0
+offset_right = 1551.0
+offset_bottom = 209.0
+text = "
+
+The SLS (Space Launch System) is one of the most powerful rockets ever built.
+It carries over 2.6 million kilograms of fuel to help lift off from Earth!
+The rocket will reach speeds of over 28,000 kilometers per hour to get into space.
+
+PRESS SPACE TO LAUNCH
+"
+label_settings = SubResource("LabelSettings_vtts2")
+metadata/_edit_use_anchors_ = true
+
+[node name="loading" type="Label" parent="ParallaxBackground/ParallaxLayer"]
+anchors_preset = -1
+anchor_left = 0.00677083
+anchor_top = 0.00772201
+anchor_right = 0.00677083
+anchor_bottom = 0.00772201
+offset_left = 29.0
+offset_top = 36.0
+offset_right = 1551.0
+offset_bottom = 209.0
+text = "Ready steady go"
+label_settings = SubResource("LabelSettings_soh6p")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="sls" parent="." instance=ExtResource("7_nv6xb")]
+position = Vector2(1025, 722)
+scale = Vector2(0.57, 0.57)
+script = ExtResource("7_j4sdh")
+
+[node name="orion_sem" parent="sls" instance=ExtResource("8_v60xd")]
+z_index = -1
+position = Vector2(-1, -368.815)
+scale = Vector2(0.06, 0.06)
+
+[node name="LaunchComplex" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1002, 908)
+texture = ExtResource("9_fkwop")
+
+[connection signal="screen_exited" from="rocket/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="rocket/VisibleOnScreenNotifier2D" to="rocket" method="_on_visible_on_screen_notifier_2d_screen_exited"]

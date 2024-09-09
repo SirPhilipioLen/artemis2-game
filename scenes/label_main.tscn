@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://bss3rypdtth1c"]
+
+[ext_resource type="StyleBox" uid="uid://dqju44gd4vpl0" path="res://scenes/label_main_panel1.tres" id="1_7nowf"]
+[ext_resource type="Script" path="res://scripts/Label.gd" id="1_a7d2h"]
+[ext_resource type="AudioStream" uid="uid://bhah6yva2tj0q" path="res://My Game Assets/Final Assets/SFX/typewriter-1.wav" id="2_g5888"]
+[ext_resource type="Texture2D" uid="uid://bcv7lja3lu16g" path="res://My Game Assets/Final Assets/dllhost_ewJVhBY4H2.png" id="2_lduj1"]
+[ext_resource type="AudioStream" uid="uid://bsev3h5koahwv" path="res://My Game Assets/Final Assets/SFX/typewriter-line-break-1.wav" id="3_65cnv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fy60c"]
+texture = ExtResource("2_lduj1")
+
+[sub_resource type="SystemFont" id="SystemFont_snjc1"]
+font_names = PackedStringArray("Nasalization")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_p5ita"]
+font = SubResource("SystemFont_snjc1")
+font_size = 40
+outline_size = 5
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_8e1t3"]
+font_names = PackedStringArray("Bell Gothic Std", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dlxx"]
+font = SubResource("SystemFont_8e1t3")
+font_size = 26
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[node name="LabelMain" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 58.0
+offset_right = 442.0
+offset_bottom = 134.0
+size_flags_horizontal = 6
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_7nowf")
+
+[node name="Panel2" type="Panel" parent="MarginContainer"]
+z_index = -1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fy60c")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Title"
+label_settings = SubResource("LabelSettings_p5ita")
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "The SLS (Space Launch System) is one of the most powerful rockets ever built.
+It carries over 2.6 million kilograms of fuel to help lift off from Earth!
+The rocket will reach speeds of over 28,000 kilometers per hour to get into space.
+
+PRESS SPACE TO LAUNCH
+"
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("1_a7d2h")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g5888")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_65cnv")
+volume_db = -15.0

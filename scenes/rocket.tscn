@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnscxhhca8dlw"]
+
+[ext_resource type="Texture2D" uid="uid://pxanixgh8hw8" path="res://My Game Assets/image-removebg-preview (1).png" id="1_hydfa"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_iwtq2"]
+[ext_resource type="Texture2D" uid="uid://cr3pac01ews3j" path="res://My Game Assets/image-removebg-preview (1)_n.png" id="3_cvi6s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3odpl"]
+radius = 23.0
+height = 138.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_de7u2"]
+diffuse_texture = ExtResource("1_hydfa")
+normal_texture = ExtResource("3_cvi6s")
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_iwtq2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("CapsuleShape2D_3odpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_de7u2")
+
+[node name="Muzzle" type="Node2D" parent="."]

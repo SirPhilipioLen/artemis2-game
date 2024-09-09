@@ -1,0 +1,173 @@
+[gd_scene load_steps=18 format=3 uid="uid://c2em0yophrl5c"]
+
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_sjtu8"]
+[ext_resource type="Texture2D" uid="uid://dh2cn2ucasyr3" path="res://My Game Assets/Final Assets/loading screens/22204787379_73fae16a36_k.jpg" id="2_cl506"]
+[ext_resource type="Texture2D" uid="uid://b5iwh36xlrhri" path="res://My Game Assets/Final Assets/loading screens/22378471492_58cc8cef2c_k.jpg" id="3_x5jb8"]
+[ext_resource type="Texture2D" uid="uid://ok3exunj3ke8" path="res://My Game Assets/Final Assets/loading screens/level3.jpg" id="4_k0msu"]
+[ext_resource type="Texture2D" uid="uid://bvb0f502lpkiq" path="res://My Game Assets/Final Assets/loading screens/level4.jpg" id="5_fs7uk"]
+[ext_resource type="Texture2D" uid="uid://chpexxc77yujm" path="res://My Game Assets/Final Assets/loading screens/level5.jpg" id="6_ptkkv"]
+[ext_resource type="Texture2D" uid="uid://dwnkgly2jfysw" path="res://My Game Assets/Final Assets/loading screens/level6.jpg" id="7_qawgh"]
+[ext_resource type="Texture2D" uid="uid://b1ml2scbytp70" path="res://My Game Assets/Final Assets/loading screens/level7.jpg" id="8_18jhd"]
+[ext_resource type="Texture2D" uid="uid://c16cmasbkq7mb" path="res://My Game Assets/Final Assets/loading screens/level8.jpg" id="9_cvl4r"]
+[ext_resource type="Texture2D" uid="uid://c5wt6n07hucbe" path="res://My Game Assets/Final Assets/loading screens/level9.jpg" id="10_dw6uo"]
+[ext_resource type="Texture2D" uid="uid://ctd18p10sume3" path="res://My Game Assets/Final Assets/loading screens/level10.jpg" id="11_bp7k0"]
+
+[sub_resource type="SystemFont" id="SystemFont_4fyth"]
+font_names = PackedStringArray("Artemis Inter")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1utvf"]
+font = SubResource("SystemFont_4fyth")
+font_size = 141
+outline_size = 8
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_el2b3"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8yal"]
+font = SubResource("SystemFont_el2b3")
+font_size = 36
+outline_size = 8
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhabu"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvnej"]
+bg_color = Color(0, 0.780392, 0.984314, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="Control" type="Control" node_paths=PackedStringArray("loading_bar", "percentage_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjtu8")
+loading_bar = NodePath("ProgressBar")
+percentage_label = NodePath("percentage_label")
+
+[node name="Credit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1647.0
+offset_top = 44.0
+offset_right = 1857.0
+offset_bottom = 67.0
+text = "Credits: NASA/Liam Yanulis"
+
+[node name="loading" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00677083
+anchor_top = 0.00772201
+anchor_right = 0.00677083
+anchor_bottom = 0.00772201
+offset_left = 29.0
+offset_top = 36.0
+offset_right = 1551.0
+offset_bottom = 209.0
+text = "ARTEMIS II"
+label_settings = SubResource("LabelSettings_1utvf")
+metadata/_edit_use_anchors_ = true
+
+[node name="percentage_label" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 763.0
+offset_top = 867.0
+offset_right = 1158.0
+offset_bottom = 1098.0
+text = "TEST"
+label_settings = SubResource("LabelSettings_u8yal")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 960.0
+offset_right = 1720.0
+offset_bottom = 997.66
+theme_override_styles/background = SubResource("StyleBoxFlat_rhabu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fvnej")
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="LoadingImage1" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(957, 533)
+scale = Vector2(0.938802, 0.938802)
+texture = ExtResource("2_cl506")
+
+[node name="LoadingImage2" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(416, 521)
+scale = Vector2(1.57867, 1.57867)
+texture = ExtResource("3_x5jb8")
+
+[node name="LoadingImage3" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("4_k0msu")
+
+[node name="LoadingImage4" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("5_fs7uk")
+
+[node name="LoadingImage5" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("6_ptkkv")
+
+[node name="LoadingImage6" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("7_qawgh")
+
+[node name="LoadingImage7" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("8_18jhd")
+
+[node name="LoadingImage8" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("9_cvl4r")
+
+[node name="LoadingImage9" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("10_dw6uo")
+
+[node name="LoadingImage10" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+position = Vector2(960, 541)
+scale = Vector2(0.947049, 0.947049)
+texture = ExtResource("11_bp7k0")

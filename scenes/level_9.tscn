@@ -1,0 +1,393 @@
+[gd_scene load_steps=25 format=3 uid="uid://spwew7pl1sy3"]
+
+[ext_resource type="Script" path="res://scripts/level_9.gd" id="1_osdrn"]
+[ext_resource type="Texture2D" uid="uid://bv8gaul3q6m53" path="res://My Game Assets/Final Assets/reentry_background.jpg" id="2_a15ij"]
+[ext_resource type="PackedScene" uid="uid://cc5n2k8dem5pa" path="res://scenes/orion_capsule.tscn" id="2_pb4ru"]
+[ext_resource type="PackedScene" uid="uid://ewx0xhcnurra" path="res://scenes/fog.tscn" id="3_5ayuj"]
+[ext_resource type="PackedScene" uid="uid://bss3rypdtth1c" path="res://scenes/label_main.tscn" id="3_ki1bc"]
+[ext_resource type="Texture2D" uid="uid://dhvvp57umgc33" path="res://My Game Assets/Final Assets/orion/Daco_4226653.png" id="3_rjih2"]
+[ext_resource type="Script" path="res://scripts/Label.gd" id="6_ds4cx"]
+[ext_resource type="AudioStream" uid="uid://b3uojmqxiem52" path="res://My Game Assets/Final Assets/SFX/reentry_wind.mp3" id="8_rib5e"]
+
+[sub_resource type="Gradient" id="Gradient_wb6d2"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ni10"]
+gradient = SubResource("Gradient_wb6d2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.885321, 0.844037)
+
+[sub_resource type="Animation" id="Animation_tu1sd"]
+resource_name = "parachutes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Daco4226653:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-9.091, -85.877), Vector2(-9.091, -549.902)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Daco4226653:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.115, 0.115), Vector2(0.785, 0.785)]
+}
+
+[sub_resource type="Animation" id="Animation_6c4ea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Daco4226653:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9.091, -85.877)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Daco4226653:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.115, 0.115)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7d3d3"]
+_data = {
+"RESET": SubResource("Animation_6c4ea"),
+"parachutes": SubResource("Animation_tu1sd")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_8e1t3"]
+font_names = PackedStringArray("Bell Gothic Std", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dlxx"]
+font = SubResource("SystemFont_8e1t3")
+font_size = 26
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70rhy"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27t1w"]
+bg_color = Color(2.88785e-06, 0.841882, 0.502663, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="SystemFont" id="SystemFont_qrdj1"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fbeyu"]
+font = SubResource("SystemFont_qrdj1")
+font_size = 21
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc0tm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_v8r2g"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mjmxp"]
+font = SubResource("SystemFont_v8r2g")
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xjwr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0adi"]
+bg_color = Color(1, 0.2, 0.213333, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[node name="level_9" type="Node2D"]
+script = ExtResource("1_osdrn")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+position = Vector2(966, -72)
+rotation = 3.40339
+color = Color(0.402702, 0.742169, 0.999999, 1)
+energy = 1.5
+
+[node name="orion_capsule" parent="." instance=ExtResource("2_pb4ru")]
+position = Vector2(1005, 544)
+rotation = 0.523598
+scale = Vector2(0.38, 0.38)
+script = null
+
+[node name="PointLight2D" type="PointLight2D" parent="orion_capsule"]
+position = Vector2(-16.9809, 259.409)
+scale = Vector2(15.1892, 8.94065)
+color = Color(0.976471, 0.376471, 0.129412, 1)
+energy = 60.0
+texture = SubResource("GradientTexture2D_4ni10")
+
+[node name="PointLight2D2" type="PointLight2D" parent="orion_capsule/PointLight2D"]
+position = Vector2(18.5424, -16.8054)
+color = Color(0.976471, 0.376471, 0.129412, 1)
+energy = 60.0
+texture = SubResource("GradientTexture2D_4ni10")
+
+[node name="PointLight2D3" type="PointLight2D" parent="orion_capsule/PointLight2D"]
+position = Vector2(-17.5327, -16.1184)
+color = Color(0.976471, 0.376471, 0.129412, 1)
+energy = 60.0
+texture = SubResource("GradientTexture2D_4ni10")
+
+[node name="Daco4226653" type="Sprite2D" parent="orion_capsule"]
+z_index = -1
+position = Vector2(-9.091, -85.877)
+scale = Vector2(0.115, 0.115)
+texture = ExtResource("3_rjih2")
+
+[node name="Daco4226654" type="Sprite2D" parent="orion_capsule/Daco4226653"]
+position = Vector2(259.091, 65.9091)
+rotation = 0.523598
+texture = ExtResource("3_rjih2")
+
+[node name="Daco4226655" type="Sprite2D" parent="orion_capsule/Daco4226653"]
+position = Vector2(-261.364, 56.8182)
+rotation = -0.523598
+texture = ExtResource("3_rjih2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="orion_capsule"]
+libraries = {
+"": SubResource("AnimationLibrary_7d3d3")
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(10, -128)
+motion_scale = Vector2(0.15, 0.15)
+
+[node name="ReentryBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -1
+position = Vector2(956, 550)
+scale = Vector2(0.940842, 0.940842)
+texture = ExtResource("2_a15ij")
+
+[node name="LabelMain" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("3_ki1bc")]
+
+[node name="MarginContainer" parent="ParallaxBackground/ParallaxLayer/LabelMain" index="0"]
+offset_left = 0.0
+offset_top = 138.0
+offset_right = 262.0
+offset_bottom = 246.0
+
+[node name="Title" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+text = "FIREBALL"
+
+[node name="Label" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+text = "The capsule reenters Earth’s atmosphere 
+at a speed of about 39,000 km/h. Special heat
+shields protect the astronauts from the 
+extreme heat of reentry, reaching up to 
+2760 degrees Celsius. As the capsule gets 
+closer to the ground, parachutes open to 
+slow it down to a safe landing speed of 
+about 32 km/h.
+
+Press SPACE to continue..."
+
+[node name="Label2" type="Label" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="2"]
+visible = false
+layout_mode = 2
+text = "Pay close attention to the red bar at the 
+bottom of the screen, which represents 
+the reentry heating. When the bar empties, 
+press SPACE to deploy the parachutes. 
+Deploying them too early will destroy them."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("6_ds4cx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+visible = false
+layout_mode = 2
+text = "Great! Now the capsule will slow down to a safe 
+speed for splashdown in the ocean.
+
+Press SPACE to continue."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("6_ds4cx")
+metadata/_edit_use_anchors_ = true
+
+[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="."]
+visible = false
+position = Vector2(966, -72)
+rotation = 0.261799
+color = Color(0.403922, 0.741176, 1, 1)
+energy = 1.5
+
+[node name="Fog" parent="." instance=ExtResource("3_5ayuj")]
+layer = 0
+rotation = -3.14159
+transform = Transform2D(-1, -8.74228e-08, 8.74228e-08, -1, 0, 0)
+
+[node name="ParallaxLayer" parent="Fog" index="0"]
+position = Vector2(-10477, -5659)
+
+[node name="ColorRect" parent="Fog/ParallaxLayer" index="0"]
+light_mask = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 754.0
+offset_right = 40.0
+offset_bottom = 973.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_70rhy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_27t1w")
+fill_mode = 3
+
+[node name="ThrustLevel" type="Label" parent="CanvasLayer/Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -49.0
+offset_right = 28.0
+offset_bottom = -2.0
+grow_horizontal = 2
+text = "Thrust
+Level"
+label_settings = SubResource("LabelSettings_fbeyu")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 851.0
+offset_right = 265.0
+offset_bottom = 1016.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc0tm")
+
+[node name="Degrees" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = " 30°"
+label_settings = SubResource("LabelSettings_mjmxp")
+
+[node name="AttitudeName" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_top = -30.0
+offset_right = 90.5
+offset_bottom = -7.0
+grow_horizontal = 2
+text = "Spacecraft Attitude"
+label_settings = SubResource("LabelSettings_fbeyu")
+
+[node name="ProgressBar3" type="ProgressBar" parent="CanvasLayer/Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1386.0
+offset_top = 959.0
+offset_right = 1386.0
+offset_bottom = 1742.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 1.57079
+theme_override_styles/background = SubResource("StyleBoxFlat_3xjwr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b0adi")
+value = 100.0
+fill_mode = 2
+show_percentage = false
+
+[node name="wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_rib5e")
+
+[connection signal="animation_finished" from="orion_capsule/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="ParallaxBackground/ParallaxLayer/LabelMain"]
+[editable path="Fog"]

@@ -1,0 +1,231 @@
+[gd_scene load_steps=14 format=3 uid="uid://b0eveduhikvmm"]
+
+[ext_resource type="Script" path="res://scripts/level_6.gd" id="1_rmu7f"]
+[ext_resource type="PackedScene" uid="uid://btk4sgosd1ena" path="res://scenes/orion_sem.tscn" id="2_mevfw"]
+[ext_resource type="Texture2D" uid="uid://cm83xqfa32hoc" path="res://My Game Assets/Final Assets/moon_close.png" id="3_03pu0"]
+[ext_resource type="PackedScene" uid="uid://clsrnuussh58y" path="res://scenes/orion_open.tscn" id="3_k6qjr"]
+[ext_resource type="PackedScene" uid="uid://bss3rypdtth1c" path="res://scenes/label_main.tscn" id="3_pdast"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tlfab"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1, 1080, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 0.0
+initial_velocity_min = -10.0
+initial_velocity_max = -10.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqgwe"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kj3h"]
+bg_color = Color(2.88785e-06, 0.841882, 0.502663, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="SystemFont" id="SystemFont_4j7bc"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_aa1tp"]
+font = SubResource("SystemFont_4j7bc")
+font_size = 21
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggy46"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_orffe"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0s2w"]
+font = SubResource("SystemFont_orffe")
+font_size = 50
+
+[node name="level_6" type="Node2D"]
+script = ExtResource("1_rmu7f")
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+position = Vector2(11, 10)
+motion_scale = Vector2(0.02, 0.02)
+
+[node name="StarFieldBack" type="GPUParticles2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(1983, 502)
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_tlfab")
+lifetime = 600.0
+preprocess = 600.0
+
+[node name="LabelMain" parent="ParallaxBackground2/ParallaxLayer" instance=ExtResource("3_pdast")]
+
+[node name="MarginContainer" parent="ParallaxBackground2/ParallaxLayer/LabelMain" index="0"]
+z_index = -1
+offset_left = 1.0
+offset_top = 0.0
+offset_right = 434.0
+offset_bottom = 108.0
+
+[node name="Panel" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer" index="0"]
+z_index = 1
+
+[node name="Panel2" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer" index="1"]
+z_index = 0
+
+[node name="Title" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+text = "CONTRA LA LUNA"
+
+[node name="Label" parent="ParallaxBackground2/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+text = "The spacecraft flies around the Moon, 
+getting as close as 7.500 km above the
+lunar surface! The Moon's gravity helps 
+change the spacecraft's direction, setting
+it on a course back to Earth. The lunar flyby
+also allows astronauts to study the Moon 
+up close.
+
+Press SPACE to continue...
+"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 0.02)
+
+[node name="ChromeYvVpr6lHnC" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1365, 313)
+scale = Vector2(0.662548, 0.662548)
+texture = ExtResource("3_03pu0")
+
+[node name="Orion" parent="." instance=ExtResource("2_mevfw")]
+visible = false
+position = Vector2(953, 508)
+scale = Vector2(0.29, 0.29)
+
+[node name="EscapeTower" parent="Orion" index="3"]
+visible = false
+
+[node name="Icps" parent="Orion" index="4"]
+visible = false
+
+[node name="Cover1" parent="Orion" index="5"]
+visible = false
+
+[node name="Cover2New" parent="Orion" index="6"]
+visible = false
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+rotation = 1.57079
+energy = 0.55
+
+[node name="orion_open" parent="." instance=ExtResource("3_k6qjr")]
+
+[node name="Camera2D" type="Camera2D" parent="orion_open"]
+position = Vector2(92, 27)
+scale = Vector2(0.29, 0.29)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 754.0
+offset_right = 40.0
+offset_bottom = 973.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_oqgwe")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3kj3h")
+max_value = 10.0
+fill_mode = 3
+
+[node name="ThrustLevel" type="Label" parent="CanvasLayer/Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -49.0
+offset_right = 28.0
+offset_bottom = -2.0
+grow_horizontal = 2
+text = "Thrust
+Level"
+label_settings = SubResource("LabelSettings_aa1tp")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 851.0
+offset_right = 265.0
+offset_bottom = 1016.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ggy46")
+
+[node name="Degrees" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = " 90°"
+label_settings = SubResource("LabelSettings_p0s2w")
+
+[node name="AttitudeName" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_top = -30.0
+offset_right = 90.5
+offset_bottom = -7.0
+grow_horizontal = 2
+text = "Spacecraft Attitude"
+label_settings = SubResource("LabelSettings_aa1tp")
+
+[editable path="ParallaxBackground2/ParallaxLayer/LabelMain"]
+[editable path="Orion"]

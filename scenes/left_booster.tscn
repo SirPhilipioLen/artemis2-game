@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://l3r7hw6fhbls"]
+
+[ext_resource type="Texture2D" uid="uid://cvwf7neimwce8" path="res://My Game Assets/left booster.png" id="1_oqldt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bog4"]
+radius = 12.0
+height = 388.0
+
+[node name="LeftBooster" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oqldt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -3)
+shape = SubResource("CapsuleShape2D_0bog4")

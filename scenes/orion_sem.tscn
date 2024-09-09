@@ -1,0 +1,167 @@
+[gd_scene load_steps=31 format=3 uid="uid://btk4sgosd1ena"]
+
+[ext_resource type="PackedScene" uid="uid://cc5n2k8dem5pa" path="res://scenes/orion_capsule.tscn" id="2_u8b63"]
+[ext_resource type="Texture2D" uid="uid://cm7nwuar6t6v5" path="res://My Game Assets/Final Assets/orion/SemFinal.png" id="3_6iabl"]
+[ext_resource type="Texture2D" uid="uid://bybcejfx6jxhi" path="res://My Game Assets/Final Assets/orion/SemFinal_n.png" id="4_2rkv3"]
+[ext_resource type="Texture2D" uid="uid://bo0o3s3y1bcnd" path="res://My Game Assets/Final Assets/laserBlue16.png" id="4_mpymj"]
+[ext_resource type="Texture2D" uid="uid://bg4trsf51fab8" path="res://My Game Assets/Final Assets/orion/EscapeTower_n.png" id="5_w6l18"]
+[ext_resource type="Texture2D" uid="uid://c7m06to8n5k1y" path="res://My Game Assets/Final Assets/orion/Cover1.png" id="5_x0n7p"]
+[ext_resource type="Texture2D" uid="uid://csjryxouob8xi" path="res://My Game Assets/Final Assets/orion/EscapeTower.png" id="6_7sky3"]
+[ext_resource type="Texture2D" uid="uid://cvqrflsbwkhbl" path="res://My Game Assets/Final Assets/orion/ICPS_n.png" id="7_ak2us"]
+[ext_resource type="Texture2D" uid="uid://bv8orbiyqgow8" path="res://My Game Assets/Final Assets/orion/ICPS.png" id="7_e75cq"]
+[ext_resource type="Texture2D" uid="uid://b0g0wwlck10is" path="res://My Game Assets/Final Assets/orion/Cover2New.png" id="8_kiox0"]
+[ext_resource type="Texture2D" uid="uid://5sksrj4416im" path="res://My Game Assets/Final Assets/laserRed01.png" id="8_nv8w2"]
+[ext_resource type="Texture2D" uid="uid://dkkgvr76jdj6s" path="res://My Game Assets/Final Assets/orion/Cover1_n.png" id="9_fwx8v"]
+[ext_resource type="Script" path="res://scripts/flicker.gd" id="9_id7k1"]
+[ext_resource type="Texture2D" uid="uid://5c26cc0x7353" path="res://My Game Assets/Final Assets/orion/Cover2New_n.png" id="11_aksyg"]
+[ext_resource type="Texture2D" uid="uid://brd3s72bg8v4x" path="res://My Game Assets/Final Assets/orion/sem_open_final.png" id="15_3c33n"]
+[ext_resource type="Texture2D" uid="uid://pxoombitbyle" path="res://My Game Assets/Final Assets/orion/sem_open_final_n.png" id="16_aogdp"]
+[ext_resource type="Texture2D" uid="uid://cwb0l7pakkq1o" path="res://My Game Assets/Final Assets/orion/sem_open_final_engines.png" id="17_ck5my"]
+[ext_resource type="Texture2D" uid="uid://ciafrcp0nmlpp" path="res://My Game Assets/Final Assets/orion/sem_open_final_engines_n.png" id="18_34axc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6be0k"]
+radius = 189.0
+height = 3638.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kil6t"]
+diffuse_texture = ExtResource("3_6iabl")
+normal_texture = ExtResource("4_2rkv3")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6sajc"]
+diffuse_texture = ExtResource("6_7sky3")
+normal_texture = ExtResource("5_w6l18")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cpgcr"]
+diffuse_texture = ExtResource("7_e75cq")
+normal_texture = ExtResource("7_ak2us")
+
+[sub_resource type="Gradient" id="Gradient_lhmte"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wcskm"]
+gradient = SubResource("Gradient_lhmte")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vlc5d"]
+diffuse_texture = ExtResource("5_x0n7p")
+normal_texture = ExtResource("9_fwx8v")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_n4m0k"]
+diffuse_texture = ExtResource("8_kiox0")
+normal_texture = ExtResource("11_aksyg")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lctdx"]
+diffuse_texture = ExtResource("15_3c33n")
+normal_texture = ExtResource("16_aogdp")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4esd5"]
+diffuse_texture = ExtResource("17_ck5my")
+normal_texture = ExtResource("18_34axc")
+
+[sub_resource type="Gradient" id="Gradient_3isnr"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1mm8u"]
+gradient = SubResource("Gradient_3isnr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="orion_sem" type="CharacterBody2D"]
+position = Vector2(991, 290)
+scale = Vector2(0.185, 0.185)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-9, 501)
+shape = SubResource("CapsuleShape2D_6be0k")
+
+[node name="orion_capsule" parent="." instance=ExtResource("2_u8b63")]
+position = Vector2(0, 5.40546)
+scale = Vector2(1.3, 1.3)
+script = null
+
+[node name="sem" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-12.2451, 324.235)
+rotation = -1.5708
+scale = Vector2(1.4791, 1.4791)
+texture = SubResource("CanvasTexture_kil6t")
+
+[node name="EscapeTower" type="Sprite2D" parent="."]
+position = Vector2(-4.214, -729.362)
+rotation = -1.5708
+scale = Vector2(2.31795, 2.31795)
+texture = SubResource("CanvasTexture_6sajc")
+
+[node name="Icps" type="Sprite2D" parent="."]
+position = Vector2(-15, 1375)
+rotation = -1.5708
+scale = Vector2(2.40455, 2.40455)
+texture = SubResource("CanvasTexture_cpgcr")
+
+[node name="LeftBoosterExhaust" type="Sprite2D" parent="Icps"]
+z_index = -1
+position = Vector2(-538.675, 1.74023)
+rotation = 1.57079
+scale = Vector2(10.522, 7.02)
+texture = ExtResource("8_nv8w2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Icps/LeftBoosterExhaust"]
+z_index = -262
+position = Vector2(-0.200974, -18.682)
+scale = Vector2(1.68968, 2.96585)
+color = Color(0, 0.561639, 0.911167, 1)
+energy = 6.91
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_wcskm")
+script = ExtResource("9_id7k1")
+
+[node name="Cover1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-147.861, 496.057)
+rotation = -1.5708
+scale = Vector2(1.04014, 1.04014)
+texture = SubResource("CanvasTexture_vlc5d")
+
+[node name="Cover2New" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(141.183, 506.077)
+rotation = -1.5708
+scale = Vector2(1.04, 1.04622)
+texture = SubResource("CanvasTexture_n4m0k")
+
+[node name="sem_open" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-29.2979, 635.145)
+scale = Vector2(2.65021, 2.65021)
+texture = SubResource("CanvasTexture_lctdx")
+
+[node name="sem_engines" type="Sprite2D" parent="sem_open"]
+z_index = -2
+position = Vector2(5.0918, -8.09814)
+scale = Vector2(1.00012, 1.00012)
+texture = SubResource("CanvasTexture_4esd5")
+
+[node name="sem_engine" type="Sprite2D" parent="sem_open/sem_engines"]
+visible = false
+z_index = -1
+position = Vector2(1.88371, 76.4124)
+scale = Vector2(3.37038, 2.23287)
+texture = ExtResource("4_mpymj")
+
+[node name="PointLight2D" type="PointLight2D" parent="sem_open/sem_engines/sem_engine"]
+light_mask = 0
+z_index = -262
+position = Vector2(1.72481e-05, -17.3535)
+scale = Vector2(0.815905, 2.16172)
+color = Color(0.196078, 0, 0.741176, 1)
+energy = 4.61
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_1mm8u")
+script = ExtResource("9_id7k1")

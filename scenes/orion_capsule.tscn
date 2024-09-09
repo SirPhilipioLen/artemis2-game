@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc5n2k8dem5pa"]
+
+[ext_resource type="Script" path="res://scripts/orion_capsule.gd" id="1_lebd7"]
+[ext_resource type="Texture2D" uid="uid://dyyncg8jak4f2" path="res://My Game Assets/Final Assets/orion/OrionCapsuleFinal.png" id="2_pjgy7"]
+[ext_resource type="Texture2D" uid="uid://be73rqeoyndsk" path="res://My Game Assets/Final Assets/orion/OrionCapsuleFinal_n.png" id="3_par1f"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uv0i1"]
+diffuse_texture = ExtResource("2_pjgy7")
+normal_texture = ExtResource("3_par1f")
+
+[node name="orion_capsule" type="CharacterBody2D"]
+position = Vector2(1022, 713)
+script = ExtResource("1_lebd7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = SubResource("CanvasTexture_uv0i1")

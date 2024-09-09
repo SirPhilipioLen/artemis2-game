@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7itv8k3x3su4"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_mnqq1"]
+[ext_resource type="Texture2D" uid="uid://dv6005dlwja6" path="res://My Game Assets/Final Assets/loading screens/dllhost_M1jhfMkwQy.png" id="2_hhrlr"]
+
+[sub_resource type="SystemFont" id="SystemFont_tf5of"]
+font_names = PackedStringArray("Artemis Inter")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4wa2"]
+font = SubResource("SystemFont_tf5of")
+font_size = 141
+outline_size = 8
+outline_color = Color(0, 0.690196, 1, 1)
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource("1_mnqq1")
+
+[node name="DllhostM1JhfMkwQy" type="Sprite2D" parent="."]
+position = Vector2(959.445, 529)
+scale = Vector2(0.761111, 0.761111)
+texture = ExtResource("2_hhrlr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Main Menu List" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 836.0
+offset_top = 412.0
+offset_right = 1155.0
+offset_bottom = 932.0
+
+[node name="Start Game" type="Button" parent="Control/Main Menu List"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Level Select" type="Button" parent="Control/Main Menu List"]
+layout_mode = 2
+text = "Level Select"
+
+[node name="Quit" type="Button" parent="Control/Main Menu List"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Level Select List" type="VBoxContainer" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 836.0
+offset_top = 412.0
+offset_right = 1155.0
+offset_bottom = 932.0
+
+[node name="level_1" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "Ready Steady Go"
+
+[node name="level_2" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "Far Above the Clouds"
+
+[node name="level_3" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "The World Spins"
+
+[node name="level_4" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "20.000 Miles Over The Sea"
+
+[node name="level_5" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "The Space In Between"
+
+[node name="level_6" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "Contra la Luna"
+
+[node name="level_7" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "Moonlight Shadow"
+
+[node name="level_8" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "Major Tom (Coming Home)"
+
+[node name="level_9" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "Fireball"
+
+[node name="level_10" type="Button" parent="Control/Level Select List"]
+layout_mode = 2
+text = "God Moving over the Face of the Waters"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Level Select List"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/Level Select List/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="loading" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00677083
+anchor_top = 0.00772201
+anchor_right = 0.00677083
+anchor_bottom = 0.00772201
+offset_left = 39.7292
+offset_top = 39.6911
+offset_right = 1561.73
+offset_bottom = 212.691
+grow_horizontal = 2
+grow_vertical = 2
+text = "ARTEMIS II"
+label_settings = SubResource("LabelSettings_m4wa2")
+
+[connection signal="pressed" from="Control/Main Menu List/Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Control/Main Menu List/Level Select" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Control/Main Menu List/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_6" to="." method="_on_level_6_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_7" to="." method="_on_level_7_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_8" to="." method="_on_level_8_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_9" to="." method="_on_level_9_pressed"]
+[connection signal="pressed" from="Control/Level Select List/level_10" to="." method="_on_level_10_pressed"]
+[connection signal="pressed" from="Control/Level Select List/HBoxContainer/Button" to="." method="_on_button_pressed"]

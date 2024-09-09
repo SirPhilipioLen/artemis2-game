@@ -1,0 +1,340 @@
+[gd_scene load_steps=23 format=3 uid="uid://ctog6aboeqduc"]
+
+[ext_resource type="Script" path="res://scripts/level_2.gd" id="1_mhr0p"]
+[ext_resource type="PackedScene" uid="uid://bss3rypdtth1c" path="res://scenes/label_main.tscn" id="2_iieca"]
+[ext_resource type="Script" path="res://scripts/CameraShake.gd" id="3_ca42f"]
+[ext_resource type="Script" path="res://scripts/Label.gd" id="3_y78a3"]
+[ext_resource type="Texture2D" uid="uid://d36a2vft1muqu" path="res://My Game Assets/_MG_1997.jpg" id="5_47ca2"]
+[ext_resource type="PackedScene" uid="uid://ewx0xhcnurra" path="res://scenes/fog.tscn" id="5_mtsv5"]
+[ext_resource type="PackedScene" uid="uid://bhp3ns5cfhcql" path="res://scenes/sls.tscn" id="7_hcgdm"]
+[ext_resource type="AudioStream" uid="uid://bujslfavtcl1x" path="res://My Game Assets/Final Assets/SFX/rocket_sound_level_2.mp3" id="8_2y21i"]
+[ext_resource type="PackedScene" uid="uid://btk4sgosd1ena" path="res://scenes/orion_sem.tscn" id="9_1t7h7"]
+
+[sub_resource type="SystemFont" id="SystemFont_8e1t3"]
+font_names = PackedStringArray("Bell Gothic Std", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dlxx"]
+font = SubResource("SystemFont_8e1t3")
+font_size = 26
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss8p4"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be3wu"]
+bg_color = Color(2.88785e-06, 0.841882, 0.502663, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_uahck"]
+offsets = PackedFloat32Array(0, 0.74026)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vmpc5"]
+gradient = SubResource("Gradient_uahck")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snb8f"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cpk7"]
+bg_color = Color(2.88785e-06, 0.841882, 0.502663, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="SystemFont" id="SystemFont_fa7wf"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_66sm8"]
+font = SubResource("SystemFont_fa7wf")
+font_size = 21
+outline_size = 2
+outline_color = Color(0, 0.690196, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2eit"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.690196, 1, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SystemFont" id="SystemFont_m5qlj"]
+font_names = PackedStringArray("Bell Gothic Std")
+
+[sub_resource type="LabelSettings" id="LabelSettings_n648w"]
+font = SubResource("SystemFont_m5qlj")
+font_size = 50
+
+[node name="level_2" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Dllhost3vw8yBnSbz" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
+position = Vector2(958, 642)
+texture = ExtResource("5_47ca2")
+
+[node name="Mg1997" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(834, 735)
+scale = Vector2(0.564815, 0.564815)
+texture = ExtResource("5_47ca2")
+
+[node name="LabelMain" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("2_iieca")]
+
+[node name="MarginContainer" parent="ParallaxBackground/ParallaxLayer/LabelMain" index="0"]
+offset_left = 1.0
+offset_top = 0.0
+offset_right = 580.0
+offset_bottom = 108.0
+
+[node name="Panel" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer" index="0"]
+z_index = 1
+
+[node name="Panel2" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer" index="1"]
+z_index = 0
+
+[node name="Title" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="0"]
+text = "FAR ABOVE THE CLOUDS"
+
+[node name="Label" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="1"]
+visible = false
+text = "The rocket uses two Solid Rocket Boosters, each 
+filled with over 500,000 kilograms of solid fuel.
+These boosters help the rocket reach space quickly 
+by providing extra thrust. Once the rocket is high 
+enough (around 45km), the boosters separate 
+and fall back into the ocean.
+
+Press SPACE to continue..."
+
+[node name="Label2" type="Label" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="2"]
+visible = false
+layout_mode = 2
+text = "Pay close attention to the two green bars in the 
+top right corner of the screen. They show the 
+boosters' fuel levels. When both bars are empty, 
+press SPACE to detach the boosters. Detaching 
+them too early can be dangerous, as they are 
+still providing thrust..."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("3_y78a3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="3"]
+visible = false
+layout_mode = 2
+text = "You can now press SPACE to jettison the spacecraft's 
+fairings and launch abort system. These components 
+are essential for separating the main capsule in case 
+of an emergency during liftoff."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("3_y78a3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="ParallaxBackground/ParallaxLayer/LabelMain/MarginContainer/MarginContainer/VBoxContainer" index="4"]
+visible = false
+layout_mode = 2
+text = "Press SPACE to continue..."
+label_settings = SubResource("LabelSettings_4dlxx")
+script = ExtResource("3_y78a3")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="ParallaxBackground/ParallaxLayer"]
+
+[node name="Control" type="Control" parent="ParallaxBackground/ParallaxLayer/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="ParallaxBackground/ParallaxLayer/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1551.0
+offset_top = 40.0
+offset_right = 1837.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ss8p4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_be3wu")
+max_value = 200.0
+value = 40.0
+fill_mode = 1
+
+[node name="ProgressBar2" type="ProgressBar" parent="ParallaxBackground/ParallaxLayer/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1551.0
+offset_top = 108.0
+offset_right = 1837.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ss8p4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_be3wu")
+max_value = 200.0
+value = 40.0
+fill_mode = 1
+
+[node name="Fog" parent="." instance=ExtResource("5_mtsv5")]
+layer = 0
+
+[node name="ColorRect" parent="Fog/ParallaxLayer" index="0"]
+light_mask = 0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(2163, 744)
+rotation = 7.33037
+color = Color(1, 0.32, 0.32, 1)
+energy = 0.46
+blend_mode = 2
+
+[node name="sls" parent="." instance=ExtResource("7_hcgdm")]
+position = Vector2(993, 547)
+rotation = 0.261799
+script = ExtResource("1_mhr0p")
+
+[node name="PointLight2D" type="PointLight2D" parent="sls/CoreStage" index="4"]
+z_index = -262
+position = Vector2(3.04126, 278.823)
+scale = Vector2(6.49088, 11.3932)
+color = Color(0.931991, 0.362232, 1.92523e-07, 1)
+energy = 5.21
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_vmpc5")
+
+[node name="orion_sem" parent="sls" instance=ExtResource("9_1t7h7")]
+z_index = -1
+position = Vector2(-1, -368.815)
+scale = Vector2(0.06, 0.06)
+
+[node name="LeftBoosterExhaust" parent="sls/orion_sem/Icps" index="0"]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="sls"]
+position = Vector2(-35.7071, -17.3496)
+rotation = 0.261799
+script = ExtResource("3_ca42f")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_2y21i")
+volume_db = -10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 754.0
+offset_right = 40.0
+offset_bottom = 973.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_snb8f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5cpk7")
+max_value = 10.0
+value = 10.0
+fill_mode = 3
+
+[node name="ThrustLevel" type="Label" parent="CanvasLayer/Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = -49.0
+offset_right = 28.0
+offset_bottom = -2.0
+grow_horizontal = 2
+text = "Thrust
+Level"
+label_settings = SubResource("LabelSettings_66sm8")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 851.0
+offset_right = 265.0
+offset_bottom = 1016.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u2eit")
+
+[node name="Degrees" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = " 90°"
+label_settings = SubResource("LabelSettings_n648w")
+
+[node name="AttitudeName" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_top = -30.0
+offset_right = 90.5
+offset_bottom = -7.0
+grow_horizontal = 2
+text = "Spacecraft Attitude"
+label_settings = SubResource("LabelSettings_66sm8")
+
+[editable path="ParallaxBackground/ParallaxLayer/LabelMain"]
+[editable path="Fog"]
+[editable path="sls"]
+[editable path="sls/orion_sem"]

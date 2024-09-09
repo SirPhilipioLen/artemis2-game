@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://clsrnuussh58y"]
+
+[ext_resource type="PackedScene" uid="uid://cc5n2k8dem5pa" path="res://scenes/orion_capsule.tscn" id="1_86mgs"]
+[ext_resource type="Script" path="res://scripts/orion_open.gd" id="1_p5lh4"]
+[ext_resource type="Texture2D" uid="uid://brd3s72bg8v4x" path="res://My Game Assets/Final Assets/orion/sem_open_final.png" id="3_v6flu"]
+[ext_resource type="Texture2D" uid="uid://pxoombitbyle" path="res://My Game Assets/Final Assets/orion/sem_open_final_n.png" id="4_ek0s1"]
+[ext_resource type="Texture2D" uid="uid://cwb0l7pakkq1o" path="res://My Game Assets/Final Assets/orion/sem_open_final_engines.png" id="5_yixtm"]
+[ext_resource type="Texture2D" uid="uid://ciafrcp0nmlpp" path="res://My Game Assets/Final Assets/orion/sem_open_final_engines_n.png" id="6_s5lff"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2vgbj"]
+diffuse_texture = ExtResource("3_v6flu")
+normal_texture = ExtResource("4_ek0s1")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_i6xp2"]
+diffuse_texture = ExtResource("5_yixtm")
+normal_texture = ExtResource("6_s5lff")
+
+[node name="orion_open" type="CharacterBody2D"]
+position = Vector2(861, 481)
+script = ExtResource("1_p5lh4")
+
+[node name="orion_capsule" parent="." instance=ExtResource("1_86mgs")]
+position = Vector2(4.99999, -52)
+scale = Vector2(0.29, 0.29)
+script = null
+
+[node name="sem_open" type="Sprite2D" parent="orion_capsule"]
+z_index = 1
+position = Vector2(-24.138, 479.31)
+scale = Vector2(2.03176, 2.03176)
+texture = SubResource("CanvasTexture_2vgbj")
+
+[node name="sem_engines" type="Sprite2D" parent="orion_capsule/sem_open"]
+z_index = -1
+position = Vector2(5.09155, -8.09808)
+scale = Vector2(1.00012, 1.00012)
+texture = SubResource("CanvasTexture_i6xp2")
